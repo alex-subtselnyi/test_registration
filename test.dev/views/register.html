@@ -1,0 +1,24 @@
+<form class="form-signin ajax" enctype="multipart/form-data" method="post" action="./ajax.php">
+    <div class="main-error alert alert-error hide"></div>
+
+    <h2 class="form-signin-heading"><? echo $translator->translate('sign_up'); ?></h2>
+    <? if ($data->status == "err" && $data->code == "username") echo $data->message;  ?>
+    <input name="username" type="text" class="input-block-level" placeholder="<? echo $translator->translate('username'); ?>" required autofocus>
+    <? if ($data->status == "err" && $data->code == "email") echo $data->message;  ?>
+    <input name="email" type="text" class="input-block-level" placeholder="<? echo $translator->translate('email'); ?>" required>
+    <? if ($data->status == "err" && $data->code == "firstname") echo $data->message;  ?>
+    <input name="firstname" type="text" class="input-block-level" placeholder="<? echo $translator->translate('first_name'); ?>" required>
+    <? if ($data->status == "err" && $data->code == "lastname") echo $data->message;  ?>
+    <input name="lastname" type="text" class="input-block-level" placeholder="<? echo $translator->translate('last_name'); ?>" required>
+    <? if ($data->status == "err" && $data->code == "password") echo $data->message;  ?>
+    <input name="password1" type="password" class="input-block-level" placeholder="<? echo $translator->translate('password'); ?>" required>
+    <? if ($data->status == "err" && $data->code == "password2") echo $data->message;  ?>
+    <input name="password2" type="password" class="input-block-level" placeholder="<? echo $translator->translate('confirm_password'); ?>" required>
+    <? if ($data->status == "err" && $data->code == "file") echo $data->message;  ?>
+    <input name="file" type="file" id="file" class="input-block-level">
+    <input type="hidden" name="act" value="register">
+    <button class="btn btn-large btn-primary" type="submit"><? echo $translator->translate('register'); ?></button>
+    <div class="alert alert-info" style="margin-top:15px;">
+        <p><? echo $translator->translate('have_account'); ?> <a href="/"><? echo $translator->translate('sign_in'); ?></a>
+    </div>
+</form>

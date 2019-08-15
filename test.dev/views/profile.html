@@ -1,0 +1,31 @@
+<h1><? echo $translator->translate('profile'); ?></h1>
+<?
+
+   $userData = new Auth\User();
+   $data = $userData->getAccount();
+?>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="<? echo $data['file']; ?>" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4>
+                            <? echo $data['firstName']; ?> <? echo $data['lastName']; ?></h4>
+                        <p>
+                            <i class="glyphicon glyphicon-envelope"></i><? echo $data['email']; ?>
+                            <form class="ajax" method="post" action="./ajax.php">
+                                <input type="hidden" name="act" value="logout">
+                                <div class="form-actions">
+                                    <button class="btn btn-large btn-primary" type="submit"><? echo $translator->translate('logout'); ?></button>
+                                </div>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

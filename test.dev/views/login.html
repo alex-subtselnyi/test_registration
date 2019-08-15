@@ -1,0 +1,18 @@
+<form class="form-signin ajax" method="post" action="./ajax.php">
+    <div class="main-error alert alert-error hide"></div>
+
+    <h2 class="form-signin-heading"><? echo $translator->translate('sign_in'); ?></h2>
+    <? if ($data->status == "err" && $data->code == "username") echo $data->message;  ?>
+    <input name="username" type="text" class="input-block-level" placeholder="<? echo $translator->translate('username'); ?>" required autofocus>
+    <? if ($data->status == "err" && $data->code == "password") echo $data->message;  ?>
+    <input name="password" type="password" class="input-block-level" placeholder="<? echo $translator->translate('password'); ?>" required>
+    <label class="checkbox">
+        <input name="remember-me" type="checkbox" value="remember-me" checked> <? echo $translator->translate('remember_me'); ?>
+    </label>
+    <input type="hidden" name="act" value="login">
+    <button class="btn btn-large btn-primary" type="submit"><? echo $translator->translate('sign_in'); ?></button>
+
+    <div class="alert alert-info" style="margin-top:15px;">
+        <p><? echo $translator->translate('n-_account'); ?> <a href="/register.php"><? echo $translator->translate('register'); ?></a>
+    </div>
+</form>

@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="language_setter">
+        <form action="./ajax.php" method="post">
+            <select name="set_language" id="custom-lang">
+                <option value="ru" <? if ($translator->getLanguage() === 'ru') echo 'selected'; ?> >Русский</option>
+                <option value="en" <? if ($translator->getLanguage() === 'en') echo 'selected'; ?> >English</option>
+            </select>
+            <input type="hidden" name="act" value="language">
+            <input class="btn btn-small btn-primary" type="submit" name="input_language" value="<? echo $translator->translate('set_language'); ?>">
+        </form>
+    </div>
